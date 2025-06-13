@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sunflover</title>
+    <style>
+        /* Сброс отступов и высота на весь экран */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #script {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Центрируем содержимое по вертикали */
+            align-items: center;     /* Центрируем по горизонтали */
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #counter {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+
+        #clickable-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.1s ease;
+        }
+
+        #clickable-image:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+    <div id="script">
+        <h1>Тапай</h1>
+        <div id="counter">Количество нажатий: 0</div>
+        <img id="clickable-image" src="sungoavik.jpg" alt="Sunflower" />
+    </div>
+
+    <script>
+        const image = document.getElementById('clickable-image');
+        const counterDisplay = document.getElementById('counter');
+        let count = 0;
+
+        image.addEventListener('click', () => {
+            count++;
+            counterDisplay.textContent = `Количество нажатий: ${count}`;
+        });
+    </script>
+</body>
+</html>
